@@ -17,12 +17,13 @@ spring:
     generate-ddl: false
     hibernate:
       ddl-auto: none
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect  #不加这句则默认为myisam引擎
 una:
   master:
     datasource:
-      url:  jdbc:mysql://localhost:3306/master_tenant?useSSL=false
+      url:  jdbc:mysql://127.0.0.1:3306/master_tenant?useSSL=false
       username: root
-      password: root
+      password: 123456
       driverClassName:  com.mysql.jdbc.Driver
       maxPoolSize:  10
       idleTimeout:  300000
@@ -30,8 +31,8 @@ una:
       poolName: master-database-connection-pool
 logging:
   level:
-    root: warn
+    root: info
     org:
       springframework:
-        web:  debug
-      hibernate: debug
+        web:  info
+      hibernate: info

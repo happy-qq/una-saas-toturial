@@ -106,7 +106,7 @@ public class TenantDataSourceConfig {
         properties.put(Environment.MULTI_TENANT, MultiTenancyStrategy.SCHEMA);
         properties.put(Environment.MULTI_TENANT_CONNECTION_PROVIDER,connectionProvider);
         properties.put(Environment.MULTI_TENANT_IDENTIFIER_RESOLVER,tenantIdentifierResolver);
-        properties.put(Environment.DIALECT,"org.hibernate.dialect.MySQL5Dialect");
+        properties.put(Environment.DIALECT,"org.hibernate.dialect.MySQL5InnoDBDialect");
         properties.put(Environment.SHOW_SQL,true);
         properties.put(Environment.FORMAT_SQL,true);
         properties.put(Environment.HBM2DDL_AUTO,"update");

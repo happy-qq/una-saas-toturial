@@ -52,6 +52,10 @@ public class DataSourceBasedMultiTenantConnectionProviderImpl extends AbstractDa
     protected DataSource selectAnyDataSource() {
         if(dataSources.isEmpty()){
             List<MasterTenant> tenants = masterTenantRepository.findAll();
+            if(tenants.isEmpty()){
+                log.error("无配置的租户数据库信息");
+                return null;
+            }
             tenants.forEach(masterTenant->{
                 dataSources.put(masterTenant.getTenant(), DataSourceUtils.wrapperDataSource(masterTenant));
             });
